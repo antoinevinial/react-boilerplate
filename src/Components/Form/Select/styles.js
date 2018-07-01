@@ -1,9 +1,11 @@
 // Import modules.
 import styled from 'styled-components';
+import * as Variables from '../../variables';
 
 // Export container.
 export const Container = styled.div`
 	position: relative;
+	margin-right: 40px;
 
 	&:after {
 		content: "";
@@ -34,7 +36,7 @@ export const Select = styled.select`
 	outline: none;
 	resize: none;
 	background-color: white;
-	border: 1px solid #cecece;
+	border: 1px solid ${Variables.colorBorder};
 	border-radius: 0;
 
 	&:focus,

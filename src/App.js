@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
 // Import styles.
-import { Application, Section, Cell } from './Components/styles';
+import { Application, Section, Heading2 } from './Components/styles';
 
 // Import components.
 import Switch from './Components/Switch';
 import FormSelect from './Components/Form/Select';
+import Card from './Components/Card';
 
 // Init application.
 class App extends Component {
@@ -40,20 +41,18 @@ class App extends Component {
 		return (
 			<Application>
 				<Section>
-					<Cell>
-						<Switch toggleSwitch={this.toggleSwitch}/>
-					</Cell>
-					<Cell>
-						{`isActive : ${this.state.isActive}`}
-					</Cell>
+					<Heading2>Toggle Switch</Heading2>
+					<Switch toggleSwitch={this.toggleSwitch}/>
+					{`isActive : ${this.state.isActive}`}
 				</Section>
 				<Section>
-					<Cell>
-						<FormSelect options={['value 1', 'value 2', 'value 3']} onChange={this.onChange}/>
-					</Cell>
-					<Cell>
-						{`Select : ${this.state.selectedValue}`}
-					</Cell>
+					<Heading2>Select</Heading2>
+					<FormSelect options={['value 1', 'value 2', 'value 3']} onChange={this.onChange}/>
+					{`Select : ${this.state.selectedValue}`}
+				</Section>
+				<Section>
+					<Heading2>Card</Heading2>
+					<Card title="My card" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla nisl id metus euismod lacinia. In hac habitasse platea dictumst." cta="Discover"/>
 				</Section>
 			</Application>
 		);
