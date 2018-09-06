@@ -1,3 +1,4 @@
+// Import modules.
 import ExampleContants from "../constants/Example";
 import AppDispatcher from '../dispatcher/AppDispatcher';
 

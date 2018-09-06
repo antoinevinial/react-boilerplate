@@ -8,14 +8,6 @@ class HomeView extends Component {
 		super();
 	}
 
-	componentDidMount() {
-
-	}
-
-	componentWillUnmount() {
-		
-	}
-
 	render() {
 		return (
 			<main className="main">
