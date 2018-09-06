@@ -1,0 +1,32 @@
+// Grid for the project.
+$cols = 12
+$gutterExtern = 80px
+$gutter = 20px
+$width = 1440px
+
+.grid
+	width 100%
+	max-width pxToRem($width)
+	margin 0 auto
+	padding 0 $gutterExtern
+
+.row
+	display flex
+	flex-flow row wrap
+	margin-left -($gutter)
+	margin-right -($gutter)
+	
+	&--center
+		align-items center
+	
+[class*="cell-"]
+	padding-left pxToRem($gutter)
+	padding-right pxToRem($gutter)
+	
+for col in 1 .. $cols
+	.cell-{col}
+		width (100% / $cols) * col
+		
+for col in 1 .. $cols
+	.prepend-{col}
+		margin-left (100% / $cols) * col

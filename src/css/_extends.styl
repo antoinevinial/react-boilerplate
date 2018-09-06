@@ -1,0 +1,31 @@
+.clearfix
+	&:before
+	&:after
+		content " "
+		display table
+		width 100%
+
+	&:after
+		clear both
+		
+.no-selectable
+	-webkit-touch-callout none
+	-webkit-user-select none
+	-khtml-user-select none
+	-moz-user-select none
+	-ms-user-select none
+	user-select none
+	
+.resetInput
+	-webkit-appearance none
+	-moz-appearance none
+	appearance none
+	font-family inherit
+	font-size inherit
+	border none
+	outline none
+	resize none
+
+.antialiased
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscale

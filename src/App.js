@@ -1,60 +1,37 @@
+// Import modules.
 import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-// Import styles.
-import { Application, Section, Heading2 } from './Components/styles';
+// Import CSS.
+import './css/react.css';
+
+// Import views.
+import HomeView from './views/Home/HomeView';
+import ExampleView from './views/Example/ExampleView';
+import NoMatchView from './views/NoMatch/NoMatchView';
 
 // Import components.
-import Switch from './Components/Switch';
-import FormSelect from './Components/Form/Select';
-import Card from './Components/Card';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 // Init application.
 class App extends Component {
 
 	constructor(props) {
-		super(props);
-
-		// Init state.
-		this.state = {
-			isActive: false,
-			selectedValue: 'value 1'
-		};
-
-		// Rebind ES6.
-		this.toggleSwitch = this.toggleSwitch.bind(this);
-		this.onChange = this.onChange.bind(this);
-	}
-
-	toggleSwitch(isActive) {
-		this.setState({
-			isActive: isActive
-		});
-	}
-
-	onChange(value) {
-		this.setState({
-			selectedValue: value
-		});
+		super();
 	}
 
 	render() {
 		return (
-			<Application>
-				<Section>
-					<Heading2>Toggle Switch</Heading2>
-					<Switch toggleSwitch={this.toggleSwitch}/>
-					{`isActive : ${this.state.isActive}`}
-				</Section>
-				<Section>
-					<Heading2>Select</Heading2>
-					<FormSelect options={['value 1', 'value 2', 'value 3']} onChange={this.onChange}/>
-					{`Select : ${this.state.selectedValue}`}
-				</Section>
-				<Section>
-					<Heading2>Card</Heading2>
-					<Card title="My card" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla nisl id metus euismod lacinia. In hac habitasse platea dictumst." cta="Discover"/>
-				</Section>
-			</Application>
+			<div className="app">
+				<Header />
+				<Switch>
+					<Route exact path="/" component={HomeView} />
+					<Route exact path="/example" component={ExampleView} />
+					<Route component={NoMatchView} />
+				</Switch>
+				<Footer />
+			</div>
 		);
 	}
 }

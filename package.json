@@ -1,17 +1,23 @@
 {
-  "name": "test-styled-components",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4",
-    "styled-components": "^3.3.3"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+	"name": "react-boilerplate",
+	"version": "1.0.0",
+	"private": true,
+	"dependencies": {
+		"babelify": "^8.0.0",
+		"create-react-app-stylus": "^1.1.1",
+		"flux": "^3.1.3",
+		"keymirror": "^0.1.1",
+		"npm-run-all": "^4.1.2",
+		"react": "^16.4.2",
+		"react-dom": "^16.4.2",
+		"react-router-dom": "^4.3.1",
+		"react-scripts": "^1.1.4",
+		"uuid": "^3.2.1"
+	},
+	"scripts": {
+		"start": "react-scripts-with-stylus start src/css/react.styl",
+		"build": "react-scripts-with-stylus build src/css/react.styl",
+		"test": "react-scripts test --env=jsdom",
+		"eject": "react-scripts eject"
+	}
 }

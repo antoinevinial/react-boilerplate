@@ -1,0 +1,14 @@
+.nav
+	&__list
+		display flex
+		flex-flow row wrap
+		align-items center
+		
+	&__item
+		& + &
+			margin-left pxToRem(30px)
+			
+	&__link
+		&.is-active
+			color blue
+			text-decoration underline
