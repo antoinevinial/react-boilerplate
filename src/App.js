@@ -19,6 +19,11 @@ class App extends Component {
 
 	constructor(props) {
 		super();
+
+		// Init window react starter object.
+		window.reactStarter = {
+			fetch: []
+		};
 	}
 
 	render() {
