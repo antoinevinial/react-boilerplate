@@ -17,6 +17,13 @@ I like to split my project into 3 different themes :
 - [/components](./src/components) with all the components used inside the project
 - [/actions](./src/actions), [/constants](./src/constants) and [/stores](./src/stores) to manage all my data interactions (with an external API)
 
+## Manage CSS in a React project
+
+When you're building a React application, you will need to write CSS. CSS is a very controversial subject inside the Front-end community, especially when it comes to JS applications.  
+There is lot's of possibility and tools to write CSS inside Javascript applications. The one you choose depend of your project but mainly is a preference choice.  
+For my boilerplate, I decided to use [Stylus](http://stylus-lang.com/) to manage all the CSS because (I used it during my previous jobs, with large scale corporate website).  
+I added a specific package **create-react-app-stylus** to compile all the *.styl* files into a single CSS file. This CSS file is include inside the [App.js](./src/App.js).
+
 ## How to create a route
 
 During your developpement, you will need to create urls with specific template to render. I use [react-router-dom](https://reacttraining.com/react-router/web/guides/philosophy) for my router. It's very easy to render a specific view based on URL
@@ -29,3 +36,5 @@ During your developpement, you will need to create urls with specific template t
 There is 2 main features for the routes :
 1. You can add an `exact` attribute to your route. If you do this, you URL needs to be exactly equal to the path attribute to render the view. If not, if you go to [http://localhost:3000/mypath/blablabla](http://localhost:3000/mypath/blablabla), you would also render the same view even if there is an extra piece inside url.
 2. Inside the path attribute, you can add a dynamic content (for example, a slug or an id) like `<Route path="/articles/:id" component={myView} />`. Thanks to that, you can render the same view for all articles but you can have access to the param inside the view (for example, to fetch the corresponding article).
+
+## How to create a simple component
