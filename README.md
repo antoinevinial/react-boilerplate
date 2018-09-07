@@ -19,7 +19,7 @@ I like to split my project into 3 different themes :
 
 ## How to create a route
 
-During your developpement, you will need to create url with specific templates to render. I use [react-router-dom](https://reacttraining.com/react-router/web/guides/philosophy) for my router. It's very easy to render a specific view based on URL
+During your developpement, you will need to create urls with specific template to render. I use [react-router-dom](https://reacttraining.com/react-router/web/guides/philosophy) for my router. It's very easy to render a specific view based on URL
 1. Open the [App.js](./src/App.js) and find the `<Switch>` tag
-2. Inside `<Switch>` tag, add a new line like `<Route path="/mypath" component={myView} />` where *myView* is a separate view file (basically a JSX file only used for view purpose)
+2. Inside `<Switch>` tag, add a new line like `<Route path="/mypath" component={myView} />` where **myView** is a separate view file (basically a JSX file only used for view purpose)
 3. Go to your url (http://localhost:3000/mypath) and you will see your view
