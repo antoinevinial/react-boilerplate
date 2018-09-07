@@ -22,4 +22,10 @@ I like to split my project into 3 different themes :
 During your developpement, you will need to create urls with specific template to render. I use [react-router-dom](https://reacttraining.com/react-router/web/guides/philosophy) for my router. It's very easy to render a specific view based on URL
 1. Open the [App.js](./src/App.js) and find the `<Switch>` tag
 2. Inside `<Switch>` tag, add a new line like `<Route path="/mypath" component={myView} />` where **myView** is a separate view file (basically a JSX file only used for view purpose)
-3. Go to your url (http://localhost:3000/mypath) and you will see your view
+3. Go to your url [http://localhost:3000/mypath](http://localhost:3000/mypath) and you will see your view
+
+### Specific route params
+
+There is 2 main features for the routes :
+1. You can add an `exact` attribute to your route. If you do this, you URL needs to be exactly equal to the path attribute to render the view. If not, if you go to [http://localhost:3000/mypath/blablabla](http://localhost:3000/mypath/blablabla), you would also render the same view even if there is an extra piece inside url.
+2. Inside the path attribute, you can add a dynamic content (for example, a slug or an id) like `<Route path="/articles/:id" component={myView} />`. Thanks to that, you can render the same view for all articles but you can have access to the param inside the view (for example, to fetch the corresponding article).
