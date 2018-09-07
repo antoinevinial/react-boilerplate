@@ -40,9 +40,9 @@ There is 2 main features for the routes :
 1. You can add an `exact` attribute to your route. If you do this, you URL needs to be exactly equal to the path attribute to render the view. If not, if you go to [http://localhost:3000/mypath/blablabla](http://localhost:3000/mypath/blablabla), you would also render the same view even if there is an extra piece inside url.
 2. Inside the path attribute, you can add a dynamic param inside URL (for example, a slug or an id) like `<Route path="/articles/:id" component={myView} />`. Thanks to that, you can render the same view for all articles but you can have access to the param inside the view (for example, to fetch the corresponding article).
 
-## How to create a simple component
+## Components
 
-When you want to create a component, go to the [/components](./src/components) folder and create a new component folder. Inside this folder, create a MyComponent.js file. Every component should has this following piece of code to be a functional React component
+When you want to create a component, go to the [/components](./src/components) folder and create a new component folder. Inside this folder, create a **MyComponent.js** file. Every component should has this following piece of code to be a functional React component
 
 ```javascript
 // Import modules.
@@ -63,4 +63,37 @@ class MyComponent extends Component {
 }
 
 export default MyComponent;
+```
+
+The constructor function is here to init the component with the React properties. The render function is the DOM output of your component. Inside your component, you can add any custom function you need and also use all the React Component built-in methods (see (doc)[https://reactjs.org/docs/react-component.html]). Basically, each component inside a React application has some lifecycle methods you can use to create your application logic (**componentWillMount**, **componentDidUpdate**, etc...).
+
+### Create a simple cover component
+
+Let's say we want to create a cover with an image, a title and a description. Let's create a [Cover.js](./src/components/Cover/Cover.js) file and add our markup inside the render function. In your component, you will have access to **props**. (Props)[https://reactjs.org/docs/components-and-props.html] are basically data that you can pass to a component to render dynamic content. This data is send by the parent component (the one that include our cover).
+
+```javascript
+// Import modules.
+import React, { Component } from 'react';
+
+// Init component.
+class Image extends Component {
+
+	constructor(props) {
+		super();
+	}
+
+	render() {
+		return (
+			<div className="cover">
+				<img className="cover__img" src={`http://placehold.it/${this.props.imageSize}`} alt=""/>
+				<div className="cover__container">
+					<h1 className="cover__title">{this.props.title}</h1>
+					<p className="cover__description">{this.props.description}</p>
+				</div>
+			</div>
+		);
+	}
+}
+
+export default Image;
 ```
