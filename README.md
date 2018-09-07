@@ -42,25 +42,25 @@ There is 2 main features for the routes :
 
 ## How to create a simple component
 
-When you want to create a component, go to the [/components](./src/components) folder and create a new component folder. Inside this folder, create a MyComponent.js file. Every component should has this following piece of code to be a functional React component :
+When you want to create a component, go to the [/components](./src/components) folder and create a new component folder. Inside this folder, create a MyComponent.js file. Every component should has this following piece of code to be a functional React component
 
 ```javascript
-	// Import modules.
-	import React, { Component } from 'react';
+// Import modules.
+import React, { Component } from 'react';
 
-	// Init component.
-	class MyComponent extends Component {
+// Init component.
+class MyComponent extends Component {
 
-		constructor(props) {
-			super();
-		}
-
-		render() {
-			return (
-				<div>My Component</div>
-			);
-		}
+	constructor(props) {
+		super();
 	}
 
-	export default MyComponent;
+	render() {
+		return (
+			<div>My Component</div>
+		);
+	}
+}
+
+export default MyComponent;
 ``
