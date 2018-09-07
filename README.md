@@ -69,7 +69,7 @@ The constructor function is here to init the component with the React properties
 
 ### Create a simple cover component
 
-Let's say we want to create a cover with an image, a title and a description. Let's create a [Cover.js](./src/components/Cover/Cover.js) file and add our markup inside the render function. In your component, you will have access to **props**. (Props)[https://reactjs.org/docs/components-and-props.html] are basically data that you can pass to a component to render dynamic content. This data is send by the parent component (the one that include our cover).
+Let's say we want to create a cover with an image, a title and a description. Let's create a [Cover.js](./src/components/Cover/Cover.js) file and add our markup inside the render function. In your component, you will have access to **props**. [Props](https://reactjs.org/docs/components-and-props.html) are basically data that you can pass to a component to render dynamic content. This data is send by the parent component (in our case, the one that include our cover).
 
 ```javascript
 // Import modules.
@@ -96,4 +96,37 @@ class Image extends Component {
 }
 
 export default Image;
+```
+
+Now that our Cover component is ready, let's include it in our [HomeView.js](./src/components/HomeView/HomeView.js). We create our view, import our component and add it to the render function. Inside the render, we pass all the props needed (title, description, imageSize) with the data.
+
+```javascript
+// Import modules.
+import React, { Component } from 'react';
+
+// Import components.
+import Cover from '../../components/Cover/Cover';
+
+// Init view.
+class HomeView extends Component {
+
+	constructor(props) {
+		super();
+	}
+
+	render() {
+		return (
+			<main className="main">
+				<div className="grid">
+
+					{/* Cover */}
+					<Cover title="Homepage" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." imageSize="1280x800"/>
+
+				</div>
+			</main>
+		);
+	}
+}
+
+export default HomeView;
 ```
