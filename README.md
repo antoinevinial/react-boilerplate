@@ -76,7 +76,7 @@ Let's say we want to create a cover with an image, a title and a description. Le
 import React, { Component } from 'react';
 
 // Init component.
-class Image extends Component {
+class Cover extends Component {
 
 	constructor(props) {
 		super();
@@ -95,7 +95,7 @@ class Image extends Component {
 	}
 }
 
-export default Image;
+export default Cover;
 ```
 
 Now that our Cover component is ready, let's include it in our [HomeView.js](./src/components/HomeView/HomeView.js). We create our view, import our component and add it to the render function. Inside the render, we pass all the props needed (title, description, imageSize) with the data.
