@@ -21,8 +21,8 @@ I like to split my project into 3 different themes :
 
 When you're building a React application, you will need to write CSS. CSS is a very controversial subject inside the Front-end community, especially when it comes to JS applications.  
 There is lot's of possibility and tools to write CSS inside Javascript applications. The one you choose depend of your project but mainly is a preference choice.  
-For my boilerplate, I decided to use [Stylus](http://stylus-lang.com/) to manage all the CSS because (I used it during my previous jobs, with large scale corporate website). I added a specific package **create-react-app-stylus** to compile all the *.styl* files into a single CSS file. This CSS file is include inside the [App.js](./src/App.js).  
-My main **.styl** files are localised inside the [/css](./src/css) folder. Basically, I have some files to create global variables, media-queries, functions and other stuff for the whole project. Aside that, I have a *.styl* file for each new component created, located inside the component folder.
+For my boilerplate, I decided to use [Stylus](http://stylus-lang.com/) to manage all the CSS because (I used it during my previous jobs, with large scale corporate website). I added a specific package [create-react-app-stylus](https://github.com/rickharrison/create-react-app-stylus) to compile all the **.styl** files into a single CSS file. This CSS file is include inside the [App.js](./src/App.js).  
+My main **.styl** files are localised inside the [/css](./src/css) folder. Basically, I have some files to create global variables, media-queries, functions and other stuff for the whole project. Aside that, I have a **.styl** file for each new component created, located inside the component folder.
 
 ## How to create a route
 
