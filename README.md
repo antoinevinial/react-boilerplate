@@ -41,3 +41,26 @@ There is 2 main features for the routes :
 2. Inside the path attribute, you can add a dynamic param inside URL (for example, a slug or an id) like `<Route path="/articles/:id" component={myView} />`. Thanks to that, you can render the same view for all articles but you can have access to the param inside the view (for example, to fetch the corresponding article).
 
 ## How to create a simple component
+
+When you want to create a component, go to the [/components](./src/components) folder and create a new component folder. Inside this folder, create a MyComponent.js file. Every component should has this following piece of code to be a functional React component :
+
+```javascript
+	// Import modules.
+	import React, { Component } from 'react';
+
+	// Init component.
+	class MyComponent extends Component {
+
+		constructor(props) {
+			super();
+		}
+
+		render() {
+			return (
+				<div>My Component</div>
+			);
+		}
+	}
+
+	export default MyComponent;
+``
