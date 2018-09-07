@@ -19,6 +19,9 @@ class Nav extends Component {
 					<li className="nav__item">
 						<NavLink className="nav__link" exact to="/example" activeClassName="is-active">Example</NavLink>
 					</li>
+					<li className="nav__item">
+						<NavLink className="nav__link" exact to="/faq" activeClassName="is-active">FAQ</NavLink>
+					</li>
 				</ul>
 			</nav>
 		);

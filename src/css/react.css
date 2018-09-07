@@ -217,7 +217,9 @@ body {
   font-family: 'Hind Vadodara', sans-serif;
   font-weight: 500;
 }
-.HindBold {
+.HindBold,
+.cover__title,
+.faq__btn {
   font-family: 'Hind Vadodara', sans-serif;
   font-weight: 600;
 }
@@ -319,6 +321,57 @@ html {
 .prepend-12 {
   margin-left: 100%;
 }
+.cover {
+  position: relative;
+}
+.cover__img {
+  display: block;
+  max-width: 100%;
+}
+.cover__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 2.5rem;
+  background-color: rgba(255,255,255,0.3);
+  z-index: 2;
+}
+.cover__title {
+  margin-bottom: 1.25rem;
+  font-size: 2.5rem;
+}
+.cover__description {
+  font-size: 1.375rem;
+  line-height: 1.75rem;
+}
+.faq__item {
+  border: 1px solid #e6e6e6;
+}
+.faq__item + .faq__item {
+  border-top: none;
+}
+.faq__item.is-open .faq__text {
+  display: block;
+}
+.faq__btn {
+  display: block;
+  width: 100%;
+  font-size: 1.25rem;
+  text-align: left;
+  padding: 1.5625rem;
+}
+.faq__btn:hover {
+  color: #fa8072;
+}
+.faq__text {
+  display: none;
+  padding: 0 1.5625rem 1.5625rem;
+}
 .footer {
   display: flex;
   flex-flow: row wrap;
@@ -339,11 +392,6 @@ html {
   align-items: center;
   justify-content: space-between;
 }
-.image {
-  display: block;
-  max-width: 100%;
-  margin: 0 auto;
-}
 .nav__list {
   display: flex;
   flex-flow: row wrap;
@@ -352,7 +400,10 @@ html {
 .nav__item + .nav__item {
   margin-left: 1.875rem;
 }
+.nav__link:hover {
+  color: #fa8072;
+}
 .nav__link.is-active {
-  color: #00f;
+  color: #fa8072;
   text-decoration: underline;
 }

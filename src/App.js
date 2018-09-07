@@ -8,6 +8,7 @@ import './css/react.css';
 // Import views.
 import HomeView from './views/Home/HomeView';
 import ExampleView from './views/Example/ExampleView';
+import FAQView from './views/FAQ/FAQView';
 import NoMatchView from './views/NoMatch/NoMatchView';
 
 // Import components.
@@ -21,7 +22,7 @@ class App extends Component {
 		super();
 
 		// Init window react starter object.
-		window.reactStarter = {
+		window.reactBoilerplate = {
 			fetch: []
 		};
 	}
@@ -33,6 +34,7 @@ class App extends Component {
 				<Switch>
 					<Route exact path="/" component={HomeView} />
 					<Route exact path="/example" component={ExampleView} />
+					<Route exact path="/faq" component={FAQView} />
 					<Route component={NoMatchView} />
 				</Switch>
 				<Footer />

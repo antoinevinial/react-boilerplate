@@ -1,6 +1,9 @@
 // Import modules.
 import React, { Component } from 'react';
 
+// Import components.
+import Cover from '../../components/Cover/Cover';
+
 // Init view.
 class HomeView extends Component {
 
@@ -12,7 +15,10 @@ class HomeView extends Component {
 		return (
 			<main className="main">
 				<div className="grid">
-					<h1>Home view</h1>
+
+					{/* Cover */}
+					<Cover title="Homepage" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." imageSize="1280x800"/>
+
 				</div>
 			</main>
 		);

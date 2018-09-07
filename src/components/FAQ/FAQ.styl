@@ -1,0 +1,26 @@
+.faq
+	&__item
+		border 1px solid $color-border
+		
+		& + &
+			border-top none
+			
+		&.is-open
+			.faq__text
+				display block
+		
+	&__btn
+		@extend .HindBold
+		display block
+		width 100%
+		font-size pxToRem(20px)
+		text-align left
+		padding pxToRem(25px)
+		
+		&:hover
+			color salmon
+		
+	&__text
+		display none
+		padding 0 pxToRem(25px) pxToRem(25px)
+	

@@ -63,7 +63,7 @@ class Store extends EventEmitter {
 
 	isDataFetching(url) {
 		// Get fetch array.
-		let fetch = window.reactStarter.fetch;
+		let fetch = window.reactBoilerplate.fetch;
 
 		// If fetch array is empty, return.
 		if (!fetch.length) return false;
@@ -87,7 +87,7 @@ class Store extends EventEmitter {
 		const event = new CustomEvent('loader:addItem');
 
 		// Update fetch array.
-		window.reactStarter.fetch.push(url);
+		window.reactBoilerplate.fetch.push(url);
 
 		// Dispatch event.
 		window.dispatchEvent(event);
@@ -98,10 +98,10 @@ class Store extends EventEmitter {
 		const event = new CustomEvent('loader:removeItem');
 
 		// Get index for url.
-		const index = window.reactStarter.fetch.indexOf(url);
+		const index = window.reactBoilerplate.fetch.indexOf(url);
 
 		// Remove url inside fetch array.
-		window.reactStarter.fetch.splice(index, 1);
+		window.reactBoilerplate.fetch.splice(index, 1);
 
 		// Dispatch event.
 		window.dispatchEvent(event);
