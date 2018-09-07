@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 
 // Init component.
-class Image extends Component {
+class Cover extends Component {
 
 	constructor(props) {
 		super();
@@ -21,4 +21,4 @@ class Image extends Component {
 	}
 }
 
-export default Image;
+export default Cover;
