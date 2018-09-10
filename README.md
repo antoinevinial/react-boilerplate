@@ -253,10 +253,10 @@ One of the most complex thing to manage in a React application are data, especia
 
 > Flux is the application architecture that Facebook uses for building client-side web applications. It complements React's composable view components by utilizing a unidirectional data flow. It's more of a pattern rather than a formal framework, and you can start using Flux immediately without a lot of new code.
 
-It's basically organise in 3 different part : actions, dispatcher and stores :
-- When you're inside a component, you will call an action to a specific content type (eg : `PageActions.getPage()` to fetch page content). The action will create a method with params you pass and provide it to the dispatcher.
-- The dispatcher will send this to the store
-- The store will launch the request to the API with the params and once it's done, will emit a custom event with the API response.
+It's basically organise in 3 different steps : actions, dispatcher and stores :
+1. When you're inside a component, you will call an action to a specific content type (eg : `PageActions.getPage()` to fetch page content). The action will create a method with params you pass and provide it to the dispatcher.
+2. The dispatcher will send this to the store
+3. The store will launch the request to the API with the params and once it's done, will emit a custom event with the API response. Usually, you add `eventListeners` inside your view to update state once store send you data.
 
 ![Flux architecture](https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)
 
