@@ -181,7 +181,7 @@ class FAQSingle extends Component {
 export default FAQSingle;
 ```
 
-Now that we have our FAQSingle.js component ready, we need to create the questions list. Let's go inside our [FAQ.js](./src/components/FAQ/FAQ.js) file. Inside our state, we add fake data to create the questions/answers. Usually, you will fetch this data with an external API. We create an `items` array. Each item of this array is an object with 2 keys : question and answer. Inside the render function, we create an `Items` variable to build all the single FAQ. The `buildItems` function loop through all items and return a single `<FAQSingle/>` component. We pass 2 props : a key variable (basically a single ID used by React to keep track of DOM changes and only update necessary piece of HTML) and an `item` variable with data.
+We now have our FAQSingle.js component ready, it's time to create the questions list. Let's go inside our [FAQ.js](./src/components/FAQ/FAQ.js) file. Inside our state, we add fake data to create the questions/answers. Usually, you will fetch this data with an external API. We create an `items` array. Each item of this array is an object with 2 keys : question and answer. Inside the render function, we create an `Items` variable to build all the single FAQ. The `buildItems` function loop through all items and return a single `<FAQSingle/>` component. We pass 2 props : a key variable (basically a single ID used by React to keep track of DOM changes and only update necessary piece of HTML) and an `item` variable with data.
 
 ```javascript
 // Import modules.
