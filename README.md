@@ -267,7 +267,7 @@ It's basically organise in 3 different steps : actions, dispatcher and store :
 
 Before fetching any data, we need to update our fetch API URL. I added a [.env](./.env) file where you can defined global variables to use through your application. Be carefull : if you want to have access to this variable, you will need to add the 'REACT_APP' prefix. If you don't do that, React won't see it. Also, if you update the variables inside your .env file, you have to re-start the npm server locally to see your changes. For this example, I will name my API variable **REACT_APP_API_URL** and use the [jsonplaceholder](https://jsonplaceholder.typicode.com) API.
 
-If you go to [Store.js](./src/mixins/Store.js) mixin file, you can see how to access to variables saved inside your .env file : ${process.env.REACT_APP_VARIABLE}.
+If you go to [Store.js](./src/mixins/Store.js) mixin file, you can see how to access to variables saved inside your .env file :
 
 ```javascript
 constructor() {
