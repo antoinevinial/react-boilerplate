@@ -265,7 +265,7 @@ It's basically organise in 3 different steps : actions, dispatcher and stores :
 
 ## Getting article from API and show it inside our view
 
-If you build a classic website, it's usually a good practice to create a *view* for each URL. Inside this *view*, you will fetch the API to get the page content (it could be a list, a full page or anything you want to show). So let's create an [ArticleView.js](./src/views/Article/ArticleView.js) file to try this. I added a specific `<Route>` inside [App.js](./src/Apps.js) to match the url [http://localhost:3000/article](http://localhost:3000/article).
+If you build a classic website, it's usually a good practice to create a **view** for each URL. Inside this **view**, you will fetch the API to get the page content (it could be a list, a full page or anything you want to show). So let's create an [ArticleView.js](./src/views/Article/ArticleView.js) file to try this. I added a specific `<Route>` inside [App.js](./src/Apps.js) to match the url [http://localhost:3000/article](http://localhost:3000/article).
 
 ```javascript
 // Import modules.
