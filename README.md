@@ -8,7 +8,7 @@ Inside the [/src](./src/views) folder, you can find all the sources files of the
 
 The [index.js](./src/index.js) file init the application by append the code inside the target element.
 
-The [History.js](./src/History.js) file create a browser history during navigation. You can create redirections or manage urls by importing this file inside other ones and use build-in methods (see [doc](https://www.npmjs.com/package/history))
+The [History.js](./src/History.js) file create a browser history during navigation. You can create redirections or manage urls by importing this file inside other ones and use [build-in methods](https://www.npmjs.com/package/history) )
 
 This [App.js](./src/App.js) file is the root of your application. Usually, I put my router inside this file and create all the different pages for my application.
 
@@ -130,3 +130,10 @@ class HomeView extends Component {
 
 export default HomeView;
 ```
+
+### Create an interactive component
+
+For the moment, we created a simple component with props. But what if we want to add some interactions? We're going to create a new FAQ component with several panels where you can click on the question to see the answer. Let's start by creating an [FAQ](./src/components/FAQ) folder inside our [/components](./src/components) folder. Inside this folder, I'm going to create 3 different files :
+- FAQ.js to put my FAQ javascript logic
+- FAQ.styl to add my styles
+- a /Single folder where I'm going to add a new JS file called [/FAQSingle.js](./src/components/FAQ/Single/FAQSingle.js)
