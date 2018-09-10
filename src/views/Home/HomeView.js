@@ -17,7 +17,7 @@ class HomeView extends Component {
 				<div className="grid">
 
 					{/* Cover */}
-					<Cover title="Homepage" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." imageSize="1280x800"/>
+					<Cover title="Homepage" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." imageSize="1280x500"/>
 
 				</div>
 			</main>

@@ -370,6 +370,8 @@ html {
 }
 .faq__text {
   display: none;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
   padding: 0 1.5625rem 1.5625rem;
 }
 .footer {
@@ -377,6 +379,7 @@ html {
   flex-flow: row wrap;
   align-items: center;
   height: 4.375rem;
+  background-color: #efefef;
   border-top: 1px solid #e6e6e6;
 }
 .header {
@@ -384,6 +387,7 @@ html {
   flex-flow: row wrap;
   align-items: center;
   height: 4.375rem;
+  background-color: #efefef;
   border-bottom: 1px solid #e6e6e6;
 }
 .header__container {
@@ -391,6 +395,12 @@ html {
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
+}
+.header__logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #fa8072;
+  border-radius: 50%;
 }
 .nav__list {
   display: flex;

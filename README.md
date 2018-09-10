@@ -8,7 +8,7 @@ Inside the [/src](./src/views) folder, you can find all the sources files of the
 
 The [index.js](./src/index.js) file init the application by append the code inside the target element.
 
-The [History.js](./src/History.js) file create a browser history during navigation. You can create redirections or manage urls by importing this file inside other ones and use [build-in methods](https://www.npmjs.com/package/history) )
+The [History.js](./src/History.js) file create a browser history during navigation. You can create redirections or manage urls by importing this file inside other ones and use [build-in methods](https://www.npmjs.com/package/history)
 
 This [App.js](./src/App.js) file is the root of your application. Usually, I put my router inside this file and create all the different pages for my application.
 
@@ -179,4 +179,66 @@ class FAQSingle extends Component {
 }
 
 export default FAQSingle;
+```
+
+Now that we have our FAQSingle.js component ready, we need to create the questions list. Let's write our FAQ.js file. Inside our state, we add our fake data to create the questions/answers. Usually, you will fetch this data with an external API. But for the sake of simplicity, we will use static data. We create an `items` array. Each item of this array is an object with 2 keys : question and answer. Inside the render function, we create an `Items` variable to build all the single FAQ. The `buildItems` loop through all items and return a single `<FAQSingle/>` component. We pass 2 props : a key variable (basically a single ID used by React to keep track of DOM changes and only update necessary piece of HTML) and an `item` variable with the data.
+
+```javascript
+// Import modules.
+import React, { Component } from 'react';
+
+// Import components.
+import FAQSingle from './Single/FAQSingle';
+
+// Init component.
+class FAQ extends Component {
+
+	constructor(props) {
+		super();
+
+		// Init states.
+		this.state = {
+			items: [
+				{
+					question: 'Lorem ipsum dolor sit amet?',
+					answer: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eleifend tortor quis mattis pulvinar. Vestibulum vulputate libero elit, at pretium ipsum tempus id.'
+				},
+				{
+					question: 'Class aptent taciti sociosqu?',
+					answer: ' Praesent bibendum vulputate auctor. Nulla ornare metus eget erat sagittis hendrerit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.'
+				},
+				{
+					question: 'Molestie ut pulvinar et?',
+					answer: 'Morbi sagittis enim et lacus bibendum dignissim. Nullam neque magna, molestie ut pulvinar et, ultricies vitae risus.'
+				},
+				{
+					question: 'Gravida at ipsum?',
+					answer: 'Fusce et blandit arcu, vitae accumsan lectus. Aliquam sem ante, viverra et euismod elementum, gravida at ipsum.'
+				}
+			]
+		};
+	}
+
+	buildItems() {
+		return this.state.items.map((item, key) => {
+			return <FAQSingle key={key} item={item} />
+		});
+	}
+
+	render() {
+		// Build items.
+		const Items = this.buildItems();
+
+		// Return component.
+		return (
+			<section className="faq">
+				<ul className="faq__list">
+					{Items}
+				</ul>
+			</section>
+		);
+	}
+}
+
+export default FAQ;
 ```

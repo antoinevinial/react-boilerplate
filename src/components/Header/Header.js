@@ -16,7 +16,7 @@ class Header extends Component {
 			<header className="header">
 				<div className="grid">
 					<div className="header__container">
-						<span className="header__logo">Logo</span>
+						<span className="header__logo"></span>
 						<Nav />
 					</div>
 				</div>
