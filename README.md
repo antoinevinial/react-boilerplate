@@ -72,7 +72,7 @@ class MyComponent extends Component {
 export default MyComponent;
 ```
 
-The constructor function is here to init the component with the React properties. The render function is the DOM output of your component. Inside your component, you can add any custom function you need and also use all the React Component built-in methods (see (doc)[https://reactjs.org/docs/react-component.html]). Basically, each component inside a React application has some lifecycle methods you can use to create your application logic (**componentWillMount**, **componentDidUpdate**, etc...). Also, don't forget to create a **.styl** file for each component in its folder : it will help you in the future when your project will grow.
+The constructor function is here to init the component with the React properties. The render function is the DOM output of your component. Inside your component, you can add any custom function you need and also use all the React Component built-in methods (see (doc)[https://reactjs.org/docs/react-component.html]). Basically, each component inside a React application has some lifecycle methods you can use to create your application logic (`componentWillMount`, `componentDidUpdate`, etc...). Also, don't forget to create a **.styl** file for each component in its folder : it will help you in the future when your project will grow.
 
 ## Component : create a simple Cover
 
@@ -138,7 +138,7 @@ class HomeView extends Component {
 export default HomeView;
 ```
 
-### Component : Create an interactive FAQ
+## Component : Create an interactive FAQ
 
 For the moment, we created a simple component with props. But what if we want to add some interactions? We're going to create a new FAQ component with several panels where you can click on the question to see the answer. Let's start by creating an [FAQ](./src/components/FAQ) folder inside our [/components](./src/components) folder. Inside this folder, I'm going to create 3 different files :
 - FAQ.js to put my FAQ javascript logic
@@ -353,11 +353,9 @@ export default ArticleView;
 So what's going on here?! :
 1. When the component mount, we want to launch the request, in other word to launch the `ArticleActions.getArticle()` action. As you can notice, we can pass params to our actions (in our case, a static article id).
 2. This action will be dispatch and send to the store. The store will fetch the API with the params and emit an event with the response.
-3. Our view has a listener to execute the `getArticleHandler` function when store emit its event (don't forget to remove your events on the `componentWillUnmount` function).
-4. Inside the `getArticleHandler` we update our state (don't forget that you MUST NOT update your state like a classic variable, but use the `setState` method).
+3. Our view has a listener to execute the `getArticleHandler` function when store emits its event (don't forget to remove your events on the `componentWillUnmount` function).
+4. Inside the `getArticleHandler` we update our state (don't forget that you **MUST NOT** update your state like a classic variable, but use the `setState` method).
 
 As you can see inside the render method, based on the `this.state.article` value, we show different element : if we don't have any article yet, we show a loading state. Once it's done, we show the `<Article/>` component and pass the data as a prop.
-
-## .env file
 
 ## SEO in React
