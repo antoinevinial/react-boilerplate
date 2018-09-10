@@ -359,3 +359,15 @@ So what's going on here?! :
 As you can see inside the render method, based on the `this.state.article` value, we show different element : if we don't have any article yet, we show a loading state. Once it's done, we show the `<Article/>` component and pass the data as a prop.
 
 ## SEO in React
+
+One of the tricky point in React when you're building a website is to have an efficient SEO. For the moment, our application doesn't have any `<meta>` tags or any pre-rendering features. If you pass our website like this inside an SEO tool, you will have a terrible final score.
+
+First of all, we need to add custom `<meta>` (title, description, og, etc..) for each our view. There is a very usefull package called [React Helmet](https://github.com/nfl/react-helmet) which manage all the changes inside the document head. As we added a specific view for each URL, it's now very easy to add a custom React Helmet inside each view
+
+```javascript
+<Helmet>
+	<title>My view</title>
+	<meta name="description" content="This is the homepage of my project." />
+	<link rel="canonical" href="http://mysite.com/example" />
+</Helmet>
+```
