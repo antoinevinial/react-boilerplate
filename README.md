@@ -1,6 +1,6 @@
 # React Boilerplate
 
-This is my boilerplate to start a new project in React. 3 different commands :
+This is my boilerplate to start a new project in React.
 - `npm install` to install all the dependencies
 - `npm start` to launch the application
 - `npm build` to build the application for production
@@ -21,7 +21,7 @@ Inside the [/src](./src/views) folder, you can find the main files to start the 
 - The [History.js](./src/History.js) file create a browser history during navigation. You can create redirections or manage urls by importing this file inside other ones and use [build-in methods](https://www.npmjs.com/package/history)
 - This [App.js](./src/App.js) file is the root of your application. Usually, I put my router inside this file and create all the different pages for my application.
 
-I like to split my project into 3 different themes :
+In addition, I like to add 5 extra folders into my React project :
 - [/views](./src/views) with a specific folder for each URL inside router
 - [/components](./src/components) with all the components used inside the project
 - [/actions](./src/actions), [/constants](./src/constants) and [/stores](./src/stores) to manage all my data interactions (with an external API)
@@ -256,16 +256,16 @@ One of the most complex thing to manage in a React application are data, especia
 
 > Flux is the application architecture that Facebook uses for building client-side web applications. It complements React's composable view components by utilizing a unidirectional data flow. It's more of a pattern rather than a formal framework, and you can start using Flux immediately without a lot of new code.
 
+![Flux architecture](https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)
+
 It's basically organise in 3 different steps : actions, dispatcher and stores :
 1. When you're inside a component, you will call an action to a specific content type (eg : `PageActions.getPage()` to fetch page content). The action will create a method with params you pass and provide it to the dispatcher.
 2. The dispatcher will send this to the store
 3. The store will launch the request to the API with the params and once it's done, will emit a custom event with the API response. Usually, you add `eventListeners` inside your view to update state once store send you data.
 
-![Flux architecture](https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)
+## Getting page content inside a view
 
-### Getting page content inside a view
-
-So let's create an ExampleView.js file to try this. I added a specific `<Route>` inside App.js to match the url /example.
+If you build a classic website, it's usually a good practice to create a View for each URL. Inside this view, you will fetch the API to get the page content. So let's create an ExampleView.js file to try this. I added a specific `<Route>` inside App.js to match the url /example.
 
 ```javascript
 // Import modules.
@@ -321,7 +321,7 @@ class ExampleView extends Component {
 					<h1>Example view</h1>
 
 					{/* Content */}
-					{this.state.content ? this.state.content : ''}
+					{this.state.content ? this.state.content : 'Loading...'}
 
 				</div>
 			</main>
@@ -332,4 +332,6 @@ class ExampleView extends Component {
 export default ExampleView;
 ```
 
-We add a `content` key inside our state to store the API response. We also import `ExampleActions` and `ExampleStore`. As you can see in the previous code, we use the React build-in component methods to manage our data. Especially, we launch the action inside the `componentDidMount` method. It's tempting to launch request inside the componentWillMount request but it's useless because the render function will be execute (so the componentDidMount) before your API will responde. Also, you don't want to block the render function but rather provide a loading state during the fetch.
+We add a `content` key inside our state to store the API response. We also import `ExampleActions` and `ExampleStore`. As you can see in the previous code, we use the React build-in component methods to manage our data. We launch the action inside the `componentDidMount` method. It's tempting to launch request inside the `componentWillMount` request but it's useless because the render function will be execute (so the `componentDidMount`) before your API will responde. Also, you don't want to block the render function but rather provide a loading state during the fetch.
+
+## SEO in React

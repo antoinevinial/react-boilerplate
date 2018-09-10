@@ -51,7 +51,7 @@ class ExampleView extends Component {
 					<h1>Example view</h1>
 
 					{/* Content */}
-					{this.state.content ? this.state.content : ''}
+					{this.state.content ? this.state.content : 'Loading...'}
 
 				</div>
 			</main>
