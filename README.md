@@ -24,7 +24,7 @@ Inside the [/src](./src/views) folder, you can find the main files to start the 
 In addition, I like to add 5 extra folders into my React project :
 - [/views](./src/views) with a specific folder for each URL inside router
 - [/components](./src/components) with all the components used inside the project
-- [/actions](./src/actions), [/constants](./src/constants) and [/stores](./src/stores) to manage all my data interactions (with an external API)
+- [/actions](./src/actions), [/constants](./src/constants) and [/stores](./src/stores) to manage all my data interactions (using Flux architecture)
 
 ## Manage CSS in a React project
 
