@@ -136,4 +136,45 @@ export default HomeView;
 For the moment, we created a simple component with props. But what if we want to add some interactions? We're going to create a new FAQ component with several panels where you can click on the question to see the answer. Let's start by creating an [FAQ](./src/components/FAQ) folder inside our [/components](./src/components) folder. Inside this folder, I'm going to create 3 different files :
 - FAQ.js to put my FAQ javascript logic
 - FAQ.styl to add my styles
-- a /Single folder where I'm going to add a new JS file called [/FAQSingle.js](./src/components/FAQ/Single/FAQSingle.js)
+- a [/Single](./src/components/FAQ/Single) folder where I'm going to add a new JS file called [FAQSingle.js](./src/components/FAQ/Single/FAQSingle.js)
+
+First of all, let's build our FAQSingle.js file. Same for our previous component, we add a constructor and render function. Inside the constructor function, we are going to initialize our [State](https://reactjs.org/docs/state-and-lifecycle.html). State is a core feature in React. State are data that belong to a specific component. You can update this data with special methods (include inside the React property). Each time you update your state, the render function will be executed, which mean you're going to see the changed live. For our FAQSingle, we're going to create a boolean isOpen for toggle answer display (State is an object, but you can store any type of variable inside it).
+
+```javascript
+// Import modules.
+import React, { Component } from 'react';
+
+// Init component.
+class FAQSingle extends Component {
+
+	constructor(props) {
+		super();
+
+		// Init state.
+		this.state = {
+			isOpen: false
+		};
+
+		// Rebind ES6.
+		this.toggleQuestion = this.toggleQuestion.bind(this);
+	}
+
+	toggleQuestion() {
+		// Update state.
+		this.setState(prevState => ({
+			isOpen: !prevState.isOpen
+		}));
+	}
+
+	render() {
+		return (
+			<li className={`faq__item ${this.state.isOpen ? 'is-open' : ''}`}>
+				<button className="faq__btn" onClick={this.toggleQuestion}>{this.props.item.question}</button>
+				<p className="faq__text">{this.props.item.answer}</p>
+			</li>
+		);
+	}
+}
+
+export default FAQSingle;
+```
