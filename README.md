@@ -360,9 +360,9 @@ As you can see inside the render method, based on the `this.state.article` value
 
 ## SEO in React
 
-One of the tricky point in React when you're building a website is to have an efficient SEO. For the moment, our application doesn't have any `<meta>` tags or any pre-rendering features. If you pass our website like this inside an SEO tool, you will have a terrible final score.
+One of the tricky point in React when you're building a website is to have an efficient SEO. For the moment, our application doesn't have any `<meta>` tags or any pre-rendering features. If you put our website like this inside an SEO tool, you will have a terrible final score.
 
-First of all, we need to add custom `<meta>` (title, description, og, etc..) for each our view. There is a very usefull package called [React Helmet](https://github.com/nfl/react-helmet) which manage all the changes inside the document head. As we added a specific view for each URL, it's now very easy to add a custom React Helmet inside each view
+First of all, we need to add custom `<meta>` (title, description, og, etc..) for each our view. There is a very usefull package called [React Helmet](https://github.com/nfl/react-helmet) which manage all the changes inside the document head. As we added a specific view for each URL, it's now very easy to add a custom React Helmet block inside each view.
 
 ```javascript
 <Helmet>
