@@ -2,6 +2,15 @@
 
 This is my boilerplate to start a new project in React.
 
+## Modules and Dependencies
+
+This starter use several packages to add extra features 
+- [React](https://reactjs.org/) default dependencies.
+- [Flux](https://facebook.github.io/flux/) to manage data flow inside our application.
+- [create-react-app-stylus](https://github.com/rickharrison/create-react-app-stylus) to compile all .styl files into single .css file
+- [React Helmet](https://github.com/nfl/react-helmet) to add dynamic meta tags for SEO purpose
+- [uuid](https://www.npmjs.com/package/uuid) to create single unique ID for list items (usefull when you need to force rendering in specific use cases)
+
 ## Structure
 
 Inside the [/src](./src/views) folder, you can find all the sources files of the application.
