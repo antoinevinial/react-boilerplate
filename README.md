@@ -1,6 +1,9 @@
 # React Boilerplate
 
-This is my boilerplate to start a new project in React.
+This is my boilerplate to start a new project in React. 3 different commands :
+- `npm install` to install all the dependencies
+- `npm start` to launch the application
+- `npm build` to build the application for production
 
 ## Modules and Dependencies
 
