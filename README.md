@@ -258,7 +258,7 @@ It's basically organise in 3 different part : actions, dispatcher and stores :
 - The dispatcher will send this to the store
 - The store will launch the request to the API with the params and once it's done, will emit a custom event with the API response.
 
-![][https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png]
+![Flux architecture](https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)
 
 
 
