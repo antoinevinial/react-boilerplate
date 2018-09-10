@@ -259,13 +259,13 @@ One of the most complex thing to manage in a React application are data, especia
 ![Flux architecture](https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)
 
 It's basically organise in 3 different steps : actions, dispatcher and stores :
-1. When you're inside a component, you will call an action to a specific content type (eg : `PageActions.getPage()` to fetch page content). The action will create a method with params you pass and provide it to the dispatcher.
+1. When you're inside a view, you will call an action to get specific content (eg : `PageActions.getPage()` to fetch page content). The action will create a method with params you pass and provide it to the dispatcher.
 2. The dispatcher will send this to the store
-3. The store will launch the request to the API with the params and once it's done, will emit a custom event with the API response. Usually, you add `eventListeners` inside your view to update state once store send you data.
+3. The store will launch the request to the API with the params and once it's done, will emit a custom event with the API response. To get back this data, you usually add `eventListeners` inside your view to update your state.
 
 ## Getting page content inside a view
 
-If you build a classic website, it's usually a good practice to create a View for each URL. Inside this view, you will fetch the API to get the page content. So let's create an ExampleView.js file to try this. I added a specific `<Route>` inside App.js to match the url /example.
+If you build a classic website, it's usually a good practice to create a *view* for each URL. Inside this *view*, you will fetch the API to get the page content. So let's create an [ExampleView.js](./src/views/Example/ExampleView.js) file to try this. I added a specific `<Route>` inside [App.js](./src/Apps.js) to match the url [http://localhost:3000/example](http://localhost:3000/example).
 
 ```javascript
 // Import modules.
@@ -316,9 +316,6 @@ class ExampleView extends Component {
 		return (
 			<main className="main">
 				<div className="grid">
-
-					{/* Title */}
-					<h1>Example view</h1>
 
 					{/* Content */}
 					{this.state.content ? this.state.content : 'Loading...'}

@@ -47,9 +47,6 @@ class ExampleView extends Component {
 			<main className="main">
 				<div className="grid">
 
-					{/* Title */}
-					<h1>Example view</h1>
-
 					{/* Content */}
 					{this.state.content ? this.state.content : 'Loading...'}
 
