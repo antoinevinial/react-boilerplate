@@ -14,12 +14,9 @@ This starter use several packages to add extra features
 ## Structure
 
 Inside the [/src](./src/views) folder, you can find all the sources files of the application.
-
-The [index.js](./src/index.js) file init the application by append the code inside the target element.
-
-The [History.js](./src/History.js) file create a browser history during navigation. You can create redirections or manage urls by importing this file inside other ones and use [build-in methods](https://www.npmjs.com/package/history)
-
-This [App.js](./src/App.js) file is the root of your application. Usually, I put my router inside this file and create all the different pages for my application.
+- The [index.js](./src/index.js) file init the application by append the code inside the target element.
+- The [History.js](./src/History.js) file create a browser history during navigation. You can create redirections or manage urls by importing this file inside other ones and use [build-in methods](https://www.npmjs.com/package/history)
+- This [App.js](./src/App.js) file is the root of your application. Usually, I put my router inside this file and create all the different pages for my application.
 
 I like to split my project into 3 different themes :
 - [/views](./src/views) with a specific folder for each URL inside router
