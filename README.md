@@ -260,6 +260,8 @@ It's basically organise in 3 different steps : actions, dispatcher and stores :
 
 ![Flux architecture](https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)
 
+### Getting page content inside a view
+
 So let's create an ExampleView.js file to try this. I added a specific <Route> inside App.js to match the url /example.
 
 ```javascript
