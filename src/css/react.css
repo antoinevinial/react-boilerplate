@@ -218,6 +218,7 @@ body {
   font-weight: 500;
 }
 .HindBold,
+.article__title,
 .cover__title,
 .faq__btn {
   font-family: 'Hind Vadodara', sans-serif;
@@ -320,6 +321,33 @@ html {
 }
 .prepend-12 {
   margin-left: 100%;
+}
+.article {
+  width: 31.25rem;
+  padding-bottom: 1.5625rem;
+  border-bottom: 1px solid #e6e6e6;
+}
+.article__img {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.9375rem;
+}
+.article__title {
+  margin-bottom: 0.625rem;
+  font-size: 1.375rem;
+  line-height: 1.625rem;
+  text-transform: capitalize;
+}
+.article__text {
+  margin-bottom: 0.9375rem;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+}
+.article__link {
+  text-decoration: underline;
+}
+.article__link:hover {
+  color: #fa8072;
 }
 .cover {
   position: relative;

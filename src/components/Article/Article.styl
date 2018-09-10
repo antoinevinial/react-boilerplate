@@ -1,0 +1,27 @@
+.article
+	width pxToRem(500px)
+	padding-bottom pxToRem(25px)
+	border-bottom 1px solid $color-border
+
+	&__img
+		display block
+		width 100%
+		margin-bottom pxToRem(15px)
+		
+	&__title
+		@extend .HindBold
+		margin-bottom pxToRem(10px)
+		font-size pxToRem(22px)
+		line-height pxToRem(26px)
+		text-transform capitalize
+		
+	&__text
+		margin-bottom pxToRem(15px)
+		font-size pxToRem(18px)
+		line-height pxToRem(24px)
+		
+	&__link
+		text-decoration underline
+		
+		&:hover
+			color salmon

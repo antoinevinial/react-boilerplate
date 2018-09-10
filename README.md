@@ -3,7 +3,7 @@
 This is my boilerplate to start a new project in React.
 - `npm install` to install all the dependencies
 - `npm start` to launch the application
-- `npm build` to build the application for production
+- `npm build` to build the application for production use
 
 ## Modules and Dependencies
 
@@ -34,7 +34,7 @@ For my boilerplate, I decided to use [Stylus](http://stylus-lang.com/) to manage
 
 My main **.styl** files are localised inside the [/css](./src/css) folder. Basically, I have some files to create global variables, media-queries, functions and other stuff for the whole project. Aside that, I have a **.styl** file for each new component created, located inside the component folder.
 
-## How to create a route
+## Router and routes
 
 During your developpement, you will need to create urls with specific template to render. I use [react-router-dom](https://reacttraining.com/react-router/web/guides/philosophy) for my router. It's very easy to render a specific view based on URL
 1. Open the [App.js](./src/App.js) and find the `<Switch>` tag
@@ -47,7 +47,7 @@ There is 2 main features for the routes :
 1. You can add an `exact` attribute to your route. If you do this, you URL needs to be exactly equal to the path attribute to render the view. If not, if you go to [http://localhost:3000/mypath/blablabla](http://localhost:3000/mypath/blablabla), you would also render the same view even if there is an extra piece inside url.
 2. Inside the path attribute, you can add a dynamic param inside URL (for example, a slug or an id) like `<Route path="/articles/:id" component={myView} />`. Thanks to that, you can render the same view for all articles but you can have access to the param inside the view (for example, to fetch the corresponding article).
 
-## Components
+## Components : the basics
 
 When you want to create a component, go to the [/components](./src/components) folder and create a new component folder. Inside this folder, create a **MyComponent.js** file. Every component should has this following piece of code to be a functional React component
 
@@ -74,7 +74,7 @@ export default MyComponent;
 
 The constructor function is here to init the component with the React properties. The render function is the DOM output of your component. Inside your component, you can add any custom function you need and also use all the React Component built-in methods (see (doc)[https://reactjs.org/docs/react-component.html]). Basically, each component inside a React application has some lifecycle methods you can use to create your application logic (**componentWillMount**, **componentDidUpdate**, etc...).
 
-### Create a simple cover component
+## Component : create a simple Cover
 
 Let's say we want to create a cover with an image, a title and a description. Let's create a [Cover.js](./src/components/Cover/Cover.js) file and add our markup inside the render function. In your component, you will have access to **props**. [Props](https://reactjs.org/docs/components-and-props.html) are basically data that you can pass to a component to render dynamic content. This data are send by the parent component (in our case, the one that include our cover).
 
@@ -138,7 +138,7 @@ class HomeView extends Component {
 export default HomeView;
 ```
 
-### Create an interactive component
+### Component : Create an interactive FAQ
 
 For the moment, we created a simple component with props. But what if we want to add some interactions? We're going to create a new FAQ component with several panels where you can click on the question to see the answer. Let's start by creating an [FAQ](./src/components/FAQ) folder inside our [/components](./src/components) folder. Inside this folder, I'm going to create 3 different files :
 - FAQ.js to put my FAQ javascript logic
@@ -263,52 +263,57 @@ It's basically organise in 3 different steps : actions, dispatcher and stores :
 2. The dispatcher will send this to the store
 3. The store will launch the request to the API with the params and once it's done, will emit a custom event with the API response. To get back this data, you usually add `eventListeners` inside your view to update your state.
 
-## Getting page content inside a view
+## Getting article from API and show it inside our view
 
-If you build a classic website, it's usually a good practice to create a *view* for each URL. Inside this *view*, you will fetch the API to get the page content. So let's create an [ExampleView.js](./src/views/Example/ExampleView.js) file to try this. I added a specific `<Route>` inside [App.js](./src/Apps.js) to match the url [http://localhost:3000/example](http://localhost:3000/example).
+If you build a classic website, it's usually a good practice to create a *view* for each URL. Inside this *view*, you will fetch the API to get the page content (it could be a list, a full page or anything you want to show). So let's create an [ArticleView.js](./src/views/Article/ArticleView.js) file to try this. I added a specific `<Route>` inside [App.js](./src/Apps.js) to match the url [http://localhost:3000/article](http://localhost:3000/article).
 
 ```javascript
 // Import modules.
 import React, { Component } from 'react';
 
 // Import actions.
-import ExampleActions from '../../actions/Example';
+import ArticleActions from '../../actions/Article';
 
 // Import stores.
-import ExampleStore from '../../stores/Example';
+import ArticleStore from '../../stores/Article';
+
+// Import components.
+import Article from '../../components/Article/Article';
 
 // Init view.
-class ExampleView extends Component {
+class ArticleView extends Component {
 
 	constructor(props) {
 		super();
 
 		// Init state.
 		this.state = {
-			content: null
+			article: null
 		};
 
 		// Rebind ES6.
-		this.getPageHandler = this.getPageHandler.bind(this);
+		this.getArticleHandler = this.getArticleHandler.bind(this);
 	}
 
 	componentDidMount() {
 		// Get page.
-		ExampleActions.getPage();
+		ArticleActions.getArticle({
+			id: 1
+		});
 		
 		// Add listeners.
-		ExampleStore.addListener('example:getPage', this.getPageHandler);
+		ArticleStore.addListener('article:getArticle', this.getArticleHandler);
 	}
 
 	componentWillUnmount() {
 		// Remove listeners.
-		ExampleStore.removeListener('example:getPage', this.getPageHandler);
+		ArticleStore.removeListener('article:getArticle', this.getArticleHandler);
 	}
 
-	getPageHandler(res) {
+	getArticleHandler(res) {
 		// Update state.
 		this.setState({
-			content: res
+			article: res
 		});
 	}
 
@@ -318,7 +323,11 @@ class ExampleView extends Component {
 				<div className="grid">
 
 					{/* Content */}
-					{this.state.content ? this.state.content : 'Loading...'}
+					{this.state.article ?
+						<Article article={this.state.article}/>
+					:
+						'Loading...'
+					}
 
 				</div>
 			</main>
@@ -326,9 +335,11 @@ class ExampleView extends Component {
 	}
 }
 
-export default ExampleView;
+export default ArticleView;
 ```
 
 We add a `content` key inside our state to store the API response. We also import `ExampleActions` and `ExampleStore`. As you can see in the previous code, we use the React build-in component methods to manage our data. We launch the action inside the `componentDidMount` method. It's tempting to launch request inside the `componentWillMount` request but it's useless because the render function will be execute (so the `componentDidMount`) before your API will responde. Also, you don't want to block the render function but rather provide a loading state during the fetch.
+
+## .env file
 
 ## SEO in React

@@ -17,10 +17,10 @@ class Nav extends Component {
 						<NavLink className="nav__link" exact to="/" activeClassName="is-active">Homepage</NavLink>
 					</li>
 					<li className="nav__item">
-						<NavLink className="nav__link" exact to="/example" activeClassName="is-active">Example</NavLink>
+						<NavLink className="nav__link" exact to="/faq" activeClassName="is-active">FAQ</NavLink>
 					</li>
 					<li className="nav__item">
-						<NavLink className="nav__link" exact to="/faq" activeClassName="is-active">FAQ</NavLink>
+						<NavLink className="nav__link" exact to="/article" activeClassName="is-active">Article</NavLink>
 					</li>
 				</ul>
 			</nav>
