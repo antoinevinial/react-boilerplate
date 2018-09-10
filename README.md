@@ -72,7 +72,7 @@ class MyComponent extends Component {
 export default MyComponent;
 ```
 
-The constructor function is here to init the component with the React properties. The render function is the DOM output of your component. Inside your component, you can add any custom function you need and also use all the React Component built-in methods (see (doc)[https://reactjs.org/docs/react-component.html]). Basically, each component inside a React application has some lifecycle methods you can use to create your application logic (**componentWillMount**, **componentDidUpdate**, etc...).
+The constructor function is here to init the component with the React properties. The render function is the DOM output of your component. Inside your component, you can add any custom function you need and also use all the React Component built-in methods (see (doc)[https://reactjs.org/docs/react-component.html]). Basically, each component inside a React application has some lifecycle methods you can use to create your application logic (**componentWillMount**, **componentDidUpdate**, etc...). Also, don't forget to create a **.styl** file for each component in its folder : it will help you in the future when your project will grow.
 
 ## Component : create a simple Cover
 
