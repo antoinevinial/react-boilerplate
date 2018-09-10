@@ -73,7 +73,7 @@ The constructor function is here to init the component with the React properties
 
 ### Create a simple cover component
 
-Let's say we want to create a cover with an image, a title and a description. Let's create a [Cover.js](./src/components/Cover/Cover.js) file and add our markup inside the render function. In your component, you will have access to **props**. [Props](https://reactjs.org/docs/components-and-props.html) are basically data that you can pass to a component to render dynamic content. This data is send by the parent component (in our case, the one that include our cover).
+Let's say we want to create a cover with an image, a title and a description. Let's create a [Cover.js](./src/components/Cover/Cover.js) file and add our markup inside the render function. In your component, you will have access to **props**. [Props](https://reactjs.org/docs/components-and-props.html) are basically data that you can pass to a component to render dynamic content. This data are send by the parent component (in our case, the one that include our cover).
 
 ```javascript
 // Import modules.
@@ -142,7 +142,7 @@ For the moment, we created a simple component with props. But what if we want to
 - FAQ.styl to add my styles
 - a [/Single](./src/components/FAQ/Single) folder where I'm going to add a new JS file called [FAQSingle.js](./src/components/FAQ/Single/FAQSingle.js)
 
-First of all, let's build our FAQSingle.js file. Same for our previous component, we add a constructor and render function. Inside the constructor function, we are going to initialize our [State](https://reactjs.org/docs/state-and-lifecycle.html). State is a core feature in React. State are data that belong to a specific component. You can update this data with special React methods. Each time you update your state, the render function will be executed, which mean you're going to see your changes in real time. For our FAQSingle, we're going to create a boolean isOpen to toggle answer display (nb : state is an object, but you can store any type of variable you want inside it).
+First of all, let's build our FAQSingle.js file. Same for our previous component, we add a constructor and render function. Inside the constructor function, we are going to initialize our [State](https://reactjs.org/docs/state-and-lifecycle.html). State is a core feature in React. State are data that belong to a specific component. You can update this data with special React methods. Each time you update your state, the render function will be executed, which mean you're going to see your changes in real time. For our FAQSingle, we're going to create a boolean `isOpen` to toggle answer display (nb : state is always an object, but you can store any type of variable you want inside it).
 
 As you can see below, we added an `onClick` listener on the question button which trigger the toggleQuestion function (don't forget to rebind your function inside the constructor to keep the global class context). Inside the `toggleQuestion`, we update the `isOpen` variable stored inside state. We also added an `is-open` class on our item to show/hide the answer (see [FAQ.styl](./src/components/FAQ/FAQ.styl) file for CSS properties). As our render function is trigger each time our state is updated, we already have an interactive component which work in real time.
 
@@ -246,3 +246,38 @@ class FAQ extends Component {
 
 export default FAQ;
 ```
+
+## Data : Fetch and retrieve from API
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
