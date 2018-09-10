@@ -262,7 +262,7 @@ It's basically organise in 3 different steps : actions, dispatcher and stores :
 
 ### Getting page content inside a view
 
-So let's create an ExampleView.js file to try this. I added a specific <Route> inside App.js to match the url /example.
+So let's create an ExampleView.js file to try this. I added a specific `<Route>` inside App.js to match the url /example.
 
 ```javascript
 // Import modules.
