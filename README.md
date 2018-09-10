@@ -265,6 +265,18 @@ It's basically organise in 3 different steps : actions, dispatcher and store :
 
 ## Getting an article from API and show it inside our view
 
+Before fetching any data, we need to update our fetch API URL. I added a [.env](./.env) file where you can defined global variables to use through your application. Be carefull : if you want to have access to this variable, you will need to add the 'REACT_APP' prefix. If you don't do that, React won't see it. Also, if you update the variables inside your .env file, you have to re-start the npm server locally to see your changes. For this example, I will name my API variable **REACT_APP_API_URL** and use the [jsonplaceholder](https://jsonplaceholder.typicode.com) API.
+
+If you go to [Store.js](./src/mixins/Store.js) mixin file, you can see how to access to variables saved inside your .env file : ${process.env.REACT_APP_VARIABLE}.
+
+```javascript
+constructor() {
+	super();
+	this._api = `${process.env.REACT_APP_API_URL}`;
+	this.setMaxListeners(1000);
+}
+```
+
 If you build a classic website, it's usually a good practice to create a **view** for each URL. Inside this **view**, you will fetch the API to get the page content (it could be a list, a full page or anything you want to show). So let's create an [ArticleView.js](./src/views/Article/ArticleView.js) file to try this. I added a specific `<Route>` inside [App.js](./src/Apps.js) to match the url [http://localhost:3000/article](http://localhost:3000/article). Here is our file :
 
 ```javascript
@@ -342,7 +354,7 @@ So what's going on here?! :
 1. When the component mount, we want to launch the request, in other word to launch the `ArticleActions.getArticle()` action. As you can notice, we can pass params to our actions (in our case, a static article id).
 2. This action will be dispatch and send to the store. The store will fetch the API with the params and emit an event with the response.
 3. Our view has a listener to execute the `getArticleHandler` function when store emit its event (don't forget to remove your events on the `componentWillUnmount` function).
-4. Inside the `getArticleHandler` we update our state.
+4. Inside the `getArticleHandler` we update our state (don't forget that you MUST NOT update your state like a classic variable, but use the `setState` method).
 
 As you can see inside the render method, based on the `this.state.article` value, we show different element : if we don't have any article yet, we show a loading state. Once it's done, we show the `<Article/>` component and pass the data as a prop.
 
