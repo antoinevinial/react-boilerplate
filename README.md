@@ -329,30 +329,4 @@ class ExampleView extends Component {
 export default ExampleView;
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+We add a `content` key inside our state to store the API response. We also import `ExampleActions` and `ExampleStore`. As you can see in the previous code, we use the React build-in component methods to manage our data. Especially, we launch the action inside the `componentDidMount` method. It's tempting to launch request inside the componentWillMount request but it's useless because the render function will be execute (so the componentDidMount) before your API will responde. Also, you don't want to block the render function but rather provide a loading state during the fetch.
