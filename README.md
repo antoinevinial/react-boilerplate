@@ -258,14 +258,14 @@ One of the most complex thing to manage in a React application are data, especia
 
 ![Flux architecture](https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)
 
-It's basically organise in 3 different steps : actions, dispatcher and stores :
+It's basically organise in 3 different steps : actions, dispatcher and store :
 1. When you're inside a view, you will call an action to get specific content (eg : `PageActions.getPage()` to fetch page content). The action will create a method with params you pass and provide it to the dispatcher.
 2. The dispatcher will send this to the store
-3. The store will launch the request to the API with the params and once it's done, will emit a custom event with the API response. To get back this data, you usually add `eventListeners` inside your view to update your state.
+3. The store will launch the request to the API with the params and once it's done, will emit a custom event with the API response. To get back this data, you usually add `eventListener` inside your view to update your state.
 
 ## Getting article from API and show it inside our view
 
-If you build a classic website, it's usually a good practice to create a **view** for each URL. Inside this **view**, you will fetch the API to get the page content (it could be a list, a full page or anything you want to show). So let's create an [ArticleView.js](./src/views/Article/ArticleView.js) file to try this. I added a specific `<Route>` inside [App.js](./src/Apps.js) to match the url [http://localhost:3000/article](http://localhost:3000/article).
+If you build a classic website, it's usually a good practice to create a **view** for each URL. Inside this **view**, you will fetch the API to get the page content (it could be a list, a full page or anything you want to show). So let's create an [ArticleView.js](./src/views/Article/ArticleView.js) file to try this. I added a specific `<Route>` inside [App.js](./src/Apps.js) to match the url [http://localhost:3000/article](http://localhost:3000/article). Here is our file :
 
 ```javascript
 // Import modules.
@@ -338,7 +338,13 @@ class ArticleView extends Component {
 export default ArticleView;
 ```
 
-We add a `content` key inside our state to store the API response. We also import `ExampleActions` and `ExampleStore`. As you can see in the previous code, we use the React build-in component methods to manage our data. We launch the action inside the `componentDidMount` method. It's tempting to launch request inside the `componentWillMount` request but it's useless because the render function will be execute (so the `componentDidMount`) before your API will responde. Also, you don't want to block the render function but rather provide a loading state during the fetch.
+Here is what we want to achieve :
+1. When the component mount, we want to launch the request, to execute the `ArticleActions.getArticle()` action. As you can notice, we can pass params to our actions (in our case, a static article id).
+2. This action will be dispatch and send to the store. The store will fetch the API and emit an event with the response.
+3. Our view has a listener to execute a function when store emit its event (don't forget to remove your events on the `componentWillUnmount` function).
+4. We launch the `getArticleHandler` when event is emitted and update our state with the response.
+
+As you can see inside the render method, based on the `this.state.article` value, we show different element : if we don't have any article yet, we show a loading state. Once it's done, we show the `<Article/>` component and pass the data as a prop.
 
 ## .env file
 
