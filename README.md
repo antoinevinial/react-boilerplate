@@ -338,11 +338,11 @@ class ArticleView extends Component {
 export default ArticleView;
 ```
 
-Here is what we want to achieve :
-1. When the component mount, we want to launch the request, to execute the `ArticleActions.getArticle()` action. As you can notice, we can pass params to our actions (in our case, a static article id).
-2. This action will be dispatch and send to the store. The store will fetch the API and emit an event with the response.
-3. Our view has a listener to execute a function when store emit its event (don't forget to remove your events on the `componentWillUnmount` function).
-4. We launch the `getArticleHandler` when event is emitted and update our state with the response.
+So what's going on here?! :
+1. When the component mount, we want to launch the request, in other word to launch the `ArticleActions.getArticle()` action. As you can notice, we can pass params to our actions (in our case, a static article id).
+2. This action will be dispatch and send to the store. The store will fetch the API with the params and emit an event with the response.
+3. Our view has a listener to execute the `getArticleHandler` function when store emit its event (don't forget to remove your events on the `componentWillUnmount` function).
+4. Inside the `getArticleHandler` we update our state.
 
 As you can see inside the render method, based on the `this.state.article` value, we show different element : if we don't have any article yet, we show a loading state. Once it's done, we show the `<Article/>` component and pass the data as a prop.
 
