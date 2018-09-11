@@ -28,7 +28,7 @@ In addition, I like to add 5 extra folders into my React project :
 
 ## Manage CSS in a React project
 
-When you're building a React application, you will need to write CSS. It's a very controversial subject inside the Front-end community, especially when it comes to JS applications. There is lot's of possibility and tools to write CSS inside Javascript applications. The one you choose depend of your project but mainly is a preference choice.
+Writing CSS for JS application a very controversial subject inside the Front-end community. There is lot's of possibility and tools to write CSS inside a JS project. The one you choose depend of your project but mainly is a preference choice.
 
 For my boilerplate, I decided to use [Stylus](http://stylus-lang.com/) to manage all the CSS (I used it during my previous jobs, with large scale corporate website). I added a specific package [create-react-app-stylus](https://github.com/rickharrison/create-react-app-stylus) to compile all the `.styl` files into a single CSS file. This CSS file is include inside the [App.js](./src/App.js).
 
@@ -36,7 +36,7 @@ My main `.styl` files are localised inside the [/css](./src/css) folder. Basical
 
 ## Router and routes
 
-During your developpement, you will need to create urls with specific template to render. I use [react-router-dom](https://reacttraining.com/react-router/web/guides/philosophy) for my router. It's very easy to render a specific view based on URL
+When you're building a website, you need to add different view and match it with specific URL path. I use [react-router-dom](https://reacttraining.com/react-router/web/guides/philosophy) for my router. It's very easy to render a specific view based on URL
 1. Open the [App.js](./src/App.js) and find the `<Switch>` tag
 2. Inside `<Switch>` tag, add a new line like `<Route path="/mypath" component={myView} />` where **myView** is a separate view file (basically a JSX file only used for view purpose)
 3. Go to your url [http://localhost:3000/mypath](http://localhost:3000/mypath) and you will see your view
