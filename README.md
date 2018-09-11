@@ -38,7 +38,7 @@ My main `.styl` files are localised inside the [/css](./src/css) folder. Basical
 
 When you're building a website, you need to add different view and match it with specific URL path. I use [react-router-dom](https://reacttraining.com/react-router/web/guides/philosophy) for my router. It's very easy to render a specific view based on URL
 1. Open the [App.js](./src/App.js) and find the `<Switch>` tag
-2. Inside `<Switch>` tag, add a new line like `<Route path="/mypath" component={myView} />` where **myView** is a separate view file (basically a JSX file only used for view purpose)
+2. Inside `<Switch>` tag, add a new line like `<Route path="/mypath" component={myView} />` where **myView** is a separate view file (basically a React Component file only used for view purpose)
 3. Go to your url [http://localhost:3000/mypath](http://localhost:3000/mypath) and you will see your view
 
 ### Specific route params
@@ -49,7 +49,7 @@ There is 2 main features for the routes :
 
 ## Components : the basics
 
-When you want to create a component, go to the [/components](./src/components) folder and create a new component folder. Inside this folder, create a **MyComponent.js** file. Every component should has this following piece of code to be a functional React component
+A React Application is basically a stack of several components. When you want to create a component, go to the [/components](./src/components) folder and create a new component folder. Inside this folder, create a `MyComponent.js` file. Every component should has this following piece of code to be a functional React component
 
 ```javascript
 // Import modules.
