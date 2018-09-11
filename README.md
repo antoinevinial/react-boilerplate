@@ -143,9 +143,9 @@ export default HomeView;
 For the moment, we created a simple component with props. But what if we want to add some interactions? We're going to create a new FAQ component with several panels where you can click on the question to see the answer. Let's start by creating an [FAQ](./src/components/FAQ) folder inside our [/components](./src/components) folder. Inside this folder, I'm going to create 3 different files :
 - [FAQ.js](./src/components/FAQ/FAQ.js) to put my FAQ javascript logic
 - [FAQ.styl](./src/components/FAQ/FAQ.styl) to add my styles
-- a [/Single](./src/components/FAQ/Single) folder where I'm going to add a new JS file called [FAQSingle.js](./src/components/FAQ/Single/FAQSingle.js)
+- [/Single](./src/components/FAQ/Single) folder where I'm going to add a new JS file called [FAQSingle.js](./src/components/FAQ/Single/FAQSingle.js)
 
-First of all, let's build our FAQSingle.js file. Same for our previous component, we add a constructor and render function. Inside the constructor function, we are going to initialize our [State](https://reactjs.org/docs/state-and-lifecycle.html). State is a core feature in React. State are data that belong to a specific component. You can update this data with special React methods. Each time you update your state, the render function will be executed, which mean you're going to see your changes in real time. For our FAQSingle, we're going to create a boolean `isOpen` to toggle answer display (nb : state is always an object, but you can store any type of variable you want inside it).
+First of all, let's build our [FAQSingle.js](./src/components/FAQ/Single/FAQSingle.js) file. Same for our previous component, we add a constructor and render function. Inside the constructor function, we are going to initialize our [State](https://reactjs.org/docs/state-and-lifecycle.html). State is a core feature in React. State are data that belong to a specific component. You can update this data with special React methods. Each time you update your state, the render function will be executed, which mean you're going to see your changes in real time. For our FAQSingle, we're going to create a boolean `isOpen` to toggle answer display (*nb* : state is always an object, but you can store any type of variable you want inside it).
 
 As you can see below, we added an `onClick` listener on the question button which trigger the `toggleQuestion` function (don't forget to rebind your function inside the constructor to keep the global class context). Inside the `toggleQuestion`, we update the `isOpen` variable stored inside state. We also added an `is-open` class on our item to show/hide the answer (see [FAQ.styl](./src/components/FAQ/FAQ.styl) file for CSS properties). As our render function is trigger each time our state is updated, we already have an interactive component which work in real time.
 
@@ -188,7 +188,7 @@ class FAQSingle extends Component {
 export default FAQSingle;
 ```
 
-We now have our FAQSingle.js component ready, it's time to create the questions list. Let's go inside our [FAQ.js](./src/components/FAQ/FAQ.js) file. Inside our state, we add fake data to create the questions/answers. Usually, you will fetch this data with an external API. We create an `items` array. Each item of this array is an object with 2 keys : question and answer. Inside the render function, we create an `Items` variable to build all the single FAQ. The `buildItems` function loop through all items and return a single `<FAQSingle/>` component. We pass 2 props : a [key](https://reactjs.org/docs/lists-and-keys.html) variable (basically a single ID used by React to keep track of DOM changes and only update necessary piece of HTML) and an `item` variable with data.
+We now have our [FAQSingle.js](./src/components/FAQ/Single/FAQSingle.js) component ready, it's time to create the questions list. Let's go inside our [FAQ.js](./src/components/FAQ/FAQ.js) file. Inside our state, we add fake data to create the questions/answers. Usually, you will fetch this data with an external API. We create an `items` array. Each item of this array is an object with 2 keys : question and answer. Inside the render function, we create an `Items` variable to build all the single FAQ. The `buildItems` function loop through all items and return a single `<FAQSingle/>` component. We pass 2 props : a [key](https://reactjs.org/docs/lists-and-keys.html) variable (basically a single ID used by React to keep track of DOM changes and only update necessary piece of HTML) and an `item` variable with data.
 
 ```javascript
 // Import modules.
@@ -258,7 +258,7 @@ One of the most complex thing to manage in a React application are data, especia
 
 ![Flux architecture](https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)
 
-It's basically organise in 3 different steps : actions, dispatcher and store :
+It's basically organise in 3 different steps : action, dispatcher and store :
 1. When you're inside a view, you will call an action to get specific content (eg : `PageActions.getPage()` to fetch page content). The action will create a method with params you pass and provide it to the dispatcher.
 2. The dispatcher will send this to the store
 3. The store will launch the request to the API with the params and once it's done, will emit a custom event with the API response. To get back this data, you usually add `eventListener` inside your view to update your state.
