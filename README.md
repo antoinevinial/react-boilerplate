@@ -34,19 +34,6 @@ For my boilerplate, I decided to use [Stylus](http://stylus-lang.com/) to manage
 
 My main `.styl` files are localised inside the [/css](./src/css) folder. Basically, I use them to create global variables, media-queries, functions and other stuff for the whole project. Aside that, I have a single `.styl` file for each new component created, located inside the component folder.
 
-## Router and routes
-
-When you're building a website, you need to add different view and match it with specific URL path. I use [react-router-dom](https://reacttraining.com/react-router/web/guides/philosophy) for my router. It's very easy to render a specific view based on URL
-1. Open the [App.js](./src/App.js) and find the `<Switch>` tag
-2. Inside `<Switch>` tag, add a new line like `<Route path="/mypath" component={myView} />` where **myView** is a separate view file (basically a React Component file only used for view purpose)
-3. Go to your url [http://localhost:3000/mypath](http://localhost:3000/mypath) and you will see your view
-
-### Specific route params
-
-There is 2 main features for the routes :
-1. You can add an `exact` attribute to your route. If you do this, you URL needs to be exactly equal to the path attribute to render the view. If not, if you go to [http://localhost:3000/mypath/blablabla](http://localhost:3000/mypath/blablabla), you would also render the same view even if there is an extra piece inside url.
-2. Inside the path attribute, you can add a dynamic param inside URL (for example, a slug or an id) like `<Route path="/articles/:id" component={myView} />`. Thanks to that, you can render the same view for all articles but you can have access to the param inside the view (for example, to fetch the corresponding article).
-
 ## Components : the basics
 
 A React Application is basically a stack of several components. When you want to create a component, go to the [/components](./src/components) folder and create a new component folder. Inside this folder, create a `MyComponent.js` file. Every component should has this following piece of code to be a functional React component
@@ -72,9 +59,22 @@ class MyComponent extends Component {
 export default MyComponent;
 ```
 
-The constructor function is here to init the component with the React properties. The render function is the DOM output of your component. Inside your component, you can add any custom function you need and also use all the React Component built-in methods (see (doc)[https://reactjs.org/docs/react-component.html]). Basically, each component inside a React application has some lifecycle methods you can use to create your application logic (`componentWillMount`, `componentDidUpdate`, etc...). Also, don't forget to create a **.styl** file for each component in its folder : it will help you in the future when your project will grow.
+The constructor function is here to init the component with the React properties. The render function is the DOM output of your component. Inside your component, you can add any custom function you need and also use all the React Component built-in methods (see [doc](https://reactjs.org/docs/react-component.html)). Basically, each component inside a React application has some lifecycle methods you can use to create your application logic (`componentWillMount`, `componentDidUpdate`, etc...). Also, don't forget to create a `.styl` file for each component in its folder : it will help you in the future when your project will grow.
 
-## Component : Create a simple Cover
+## Router and routes
+
+When you're building a website, you need to add different view and match it with specific URL path. I use [react-router-dom](https://reacttraining.com/react-router/web/guides/philosophy) for my router. It's very easy to render a specific view based on URL
+1. Open the [App.js](./src/App.js) and find the `<Switch>` tag
+2. Inside `<Switch>` tag, add a new line like `<Route path="/mypath" component={myView} />` where `myView` is a separate view file (basically a React Component file only used for view purpose)
+3. Go to your url [http://localhost:3000/mypath](http://localhost:3000/mypath) and you will see your view
+
+### Specific route params
+
+There is 2 main features for the routes :
+1. You can add an `exact` attribute to your route. If you do this, you URL needs to be exactly equal to the path attribute to render the view. If not, if you go to [http://localhost:3000/mypath/blablabla](http://localhost:3000/mypath/blablabla), you would also render the same view even if there is an extra piece inside url.
+2. Inside the path attribute, you can add a dynamic param inside URL (for example, a slug or an id) like `<Route path="/articles/:id" component={myView} />`. Thanks to that, you can render the same view for all articles but you can have access to the param inside the view (for example, to fetch the corresponding article).
+
+## Create a simple Cover component
 
 Let's say we want to create a cover with an image, a title and a description. Let's create a [Cover.js](./src/components/Cover/Cover.js) file and add our markup inside the render function. In your component, you will have access to **props**. [Props](https://reactjs.org/docs/components-and-props.html) are basically data that you can pass to a component to render dynamic content. This data are send by the parent component (in our case, the one that include our cover).
 
@@ -138,7 +138,7 @@ class HomeView extends Component {
 export default HomeView;
 ```
 
-## Component : Create an interactive FAQ
+## Create an interactive FAQ component
 
 For the moment, we created a simple component with props. But what if we want to add some interactions? We're going to create a new FAQ component with several panels where you can click on the question to see the answer. Let's start by creating an [FAQ](./src/components/FAQ) folder inside our [/components](./src/components) folder. Inside this folder, I'm going to create 3 different files :
 - FAQ.js to put my FAQ javascript logic
