@@ -376,4 +376,4 @@ Now that we have custom meta tags for each page, we need to deal with an other p
 
 To solve this problem, we have 2 solutions :
 - Using [React Snap](https://www.npmjs.com/package/react-snap) : this package is going to crawl your website locally each time you launch the deploy command. As a result, you will have a folder with generated .html files pages. You can now redirect Google Crawlers based on user agent to this particular folder.
-- [Prerender.io](https://prerender.io/) : this service is really popular inside the JS community. It does same thing than React Snap but with more flexible. You can also add webhooks to renew your cached pages based on the content on the website.
+- [Prerender.io](https://prerender.io/) : this service is really popular inside the JS community. It does same thing than React Snap but with more flexible features. You can, for example, add webhooks to renew your cached pages based on the content changes on the website.
