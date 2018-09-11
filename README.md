@@ -371,3 +371,9 @@ First of all, we need to add custom `<meta>` (title, description, og, etc..) for
 	<link rel="canonical" href="http://mysite.com/example" />
 </Helmet>
 ```
+
+Now that we have custom meta tags for each page, we need to deal with an other problem. If you go to your website with Javascript disable, you won't see any content. And that's perfectly normal, because all our website use Javascript to fetch data and display content on all pages. Some people say that Google start to execute Javascript when it crawls website but it doesn't seem to be the case each time. And all the SEO tools can't fetch any information even if you use React Helmet.
+
+To solve this problem, we have 2 solutions :
+- Using [React Snap](https://www.npmjs.com/package/react-snap) : this package is going to crawl your website locally each time you launch the deploy command. As a result, you will have a folder with generated .html files pages. You can now redirect Google Crawlers based on user agent to this particular folder.
+- [Prerender.io](https://prerender.io/) : this service is really popular inside the JS community. It does same thing than React Snap but is more flexible. 
