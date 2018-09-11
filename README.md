@@ -7,7 +7,7 @@ This is my boilerplate to start a new project in React.
 
 ## Modules and Dependencies
 
-This starter use several packages to add extra features 
+This starter use several packages to add extra features :
 - [React](https://reactjs.org/) default dependencies.
 - [Flux](https://facebook.github.io/flux/) to manage data flow inside our application.
 - [create-react-app-stylus](https://github.com/rickharrison/create-react-app-stylus) to compile all .styl files into single .css file
@@ -17,7 +17,7 @@ This starter use several packages to add extra features
 ## Structure
 
 Inside the [/src](./src/views) folder, you can find the main files to start the application
-- The [index.js](./src/index.js) file init the application by append the code inside the target element.
+- The [index.js](./src/index.js) file init the application
 - The [History.js](./src/History.js) file create a browser history during navigation. You can create redirections or manage urls by importing this file inside other ones and use [build-in methods](https://www.npmjs.com/package/history)
 - This [App.js](./src/App.js) file is the root of your application. Usually, I put my router inside this file and create all the different pages for my application.
 
@@ -28,11 +28,11 @@ In addition, I like to add 5 extra folders into my React project :
 
 ## Manage CSS in a React project
 
-When you're building a React application, you will need to write CSS. CSS is a very controversial subject inside the Front-end community, especially when it comes to JS applications. There is lot's of possibility and tools to write CSS inside Javascript applications. The one you choose depend of your project but mainly is a preference choice.
+When you're building a React application, you will need to write CSS. It's a very controversial subject inside the Front-end community, especially when it comes to JS applications. There is lot's of possibility and tools to write CSS inside Javascript applications. The one you choose depend of your project but mainly is a preference choice.
 
-For my boilerplate, I decided to use [Stylus](http://stylus-lang.com/) to manage all the CSS (I used it during my previous jobs, with large scale corporate website). I added a specific package [create-react-app-stylus](https://github.com/rickharrison/create-react-app-stylus) to compile all the **.styl** files into a single CSS file. This CSS file is include inside the [App.js](./src/App.js).
+For my boilerplate, I decided to use [Stylus](http://stylus-lang.com/) to manage all the CSS (I used it during my previous jobs, with large scale corporate website). I added a specific package [create-react-app-stylus](https://github.com/rickharrison/create-react-app-stylus) to compile all the `.styl` files into a single CSS file. This CSS file is include inside the [App.js](./src/App.js).
 
-My main **.styl** files are localised inside the [/css](./src/css) folder. Basically, I have some files to create global variables, media-queries, functions and other stuff for the whole project. Aside that, I have a **.styl** file for each new component created, located inside the component folder.
+My main `.styl` files are localised inside the [/css](./src/css) folder. Basically, I use them to create global variables, media-queries, functions and other stuff for the whole project. Aside that, I have a single `.styl` file for each new component created, located inside the component folder.
 
 ## Router and routes
 
